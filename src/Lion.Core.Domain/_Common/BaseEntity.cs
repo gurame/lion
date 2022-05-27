@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Lion.Core.Domain.Common;
+namespace Lion.Core.Domain._Common;
 
 public abstract class BaseEntity
 {

@@ -1,4 +1,4 @@
-﻿namespace Lion.Core.Domain.Common;
+﻿namespace Lion.Core.Domain._Common;
 public abstract class BaseAuditableEntity : BaseEntity
 {
     public DateTime Created { get; set; }
