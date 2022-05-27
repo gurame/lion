@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  lion.api:
+    image: ${DOCKER_REGISTRY-}lionapi
+    build:
+      context: .
+      dockerfile: src/Lion.API/Dockerfile
