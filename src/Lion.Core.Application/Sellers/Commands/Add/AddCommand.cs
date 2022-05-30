@@ -29,10 +29,10 @@ public class AddCommandHandler : IRequestHandler<AddCommand, AddResult>
 
     public async Task<AddResult> Handle(AddCommand request, CancellationToken cancellationToken)
     {
-        var exiting = await _repository.Get(x => x.TaxId == request.TaxId);
-        if (exiting != null)
+        var entity = await _repository.Get(x => x.TaxId == request.TaxId);
+        if (entity != null)
         {
-            throw new DomainException($"Cannot add seller. Seller with tax id ({request.TaxId}) already exists.");
+            throw new SellerAlreadyExistsException(request.TaxId);
         }
 
         var @new = Seller.Factory.Create(_uudi.Id, request.TaxId, request.Name);
