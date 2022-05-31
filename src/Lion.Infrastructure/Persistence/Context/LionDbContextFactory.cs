@@ -20,8 +20,9 @@ public class LionDbContextFactory : IDesignTimeDbContextFactory<LionDbContext>
             connectionString = args[0];
         }
 
+        var serverVersion = new MySqlServerVersion(new Version(8, 0, 27));
         var builder = new DbContextOptionsBuilder<LionDbContext>();
-        builder.UseMySQL(connectionString);
+        builder.UseMySql(serverVersion);
 
         return new LionDbContext(builder.Options, null!);
     }

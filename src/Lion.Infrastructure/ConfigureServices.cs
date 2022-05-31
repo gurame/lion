@@ -23,7 +23,8 @@ public static class ConfigureServices
         {
             var configuration = sp.GetService<IConfiguration>();
             options.UseLazyLoadingProxies();
-            options.UseMySQL(configuration.GetConnectionString("DefaultConnection"));
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
+            options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
         });
 
         services.AddTransient<IDateTimeService, DateTimeService>();
