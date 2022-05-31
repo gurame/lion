@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using MediatR;
+using ValidationException = Lion.Core.Application._Common.Exceptions.ValidationException;
 
 namespace Lion.Core.Application._Common.Behaviours;
 

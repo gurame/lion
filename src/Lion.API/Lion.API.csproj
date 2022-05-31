@@ -11,12 +11,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="6.0.1" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.15.1" />
+    <PackageReference Include="NSwag.AspNetCore" Version="13.16.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Lion.Core.Application\Lion.Core.Application.csproj" />
+    <ProjectReference Include="..\Lion.Infrastructure\Lion.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,6 @@
 ﻿namespace Lion.Core.Application._Common.Interfaces;
 
-public interface IDateTime
+public interface IDateTimeService
 {
     DateTime Now { get; }
 }

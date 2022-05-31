@@ -13,7 +13,7 @@ public abstract class BaseAuditableEntity : BaseEntity
         this.Created = created;
         this.CreatedBy = createdBy;
     }
-    public void SetLastModifiedInformation(DateTime lastModified, string lastModifiedBy)
+    public void SetModifiedInformation(DateTime lastModified, string lastModifiedBy)
     {
         this.LastModified = lastModified;
         this.LastModifiedBy = lastModifiedBy;
