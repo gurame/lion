@@ -10,9 +10,6 @@ namespace Lion.Infrastructure.Persistence.Configurations
         public void Configure(EntityTypeBuilder<Seller> builder)
         {
             builder.HasKey(x => x.SellerId);
-            builder.Property(x => x.SellerId)
-                   .HasColumnType("char")
-                   .HasMaxLength(36);
 
             builder.Property(x => x.TaxId)
                    .IsRequired();

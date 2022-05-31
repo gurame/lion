@@ -7,7 +7,7 @@ namespace Lion.Core.Application.Sellers.Queries.GetById;
 
 public record GetByIdQuery : IRequest<GetByIdResult>
 {
-    public string SellerId { get; init; }
+    public Guid SellerId { get; init; }
 }
 
 public class GetByIdQueryHandler : IRequestHandler<GetByIdQuery, GetByIdResult>

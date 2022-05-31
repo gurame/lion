@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Lion.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(LionDbContext))]
-    [Migration("20220531181637_Init")]
+    [Migration("20220531221901_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,8 +23,8 @@ namespace Lion.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("Lion.Core.Domain.Entities.Seller", b =>
                 {
-                    b.Property<string>("SellerId")
-                        .HasMaxLength(36)
+                    b.Property<Guid>("SellerId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
                     b.Property<int>("BaseEntityState")

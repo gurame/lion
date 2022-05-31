@@ -17,7 +17,7 @@ public class SellerController : ApiControllerBase
     [ProducesResponseType(typeof(GetByIdResult), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-    public async Task<IActionResult> GetById(string id)
+    public async Task<IActionResult> GetById(Guid id)
     {
         var result = await Mediator.Send(new GetByIdQuery { SellerId = id });
         return Ok(result);

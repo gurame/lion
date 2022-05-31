@@ -15,8 +15,7 @@ namespace Lion.Infrastructure.Persistence.Migrations
                 name: "Seller",
                 columns: table => new
                 {
-                    SellerId = table.Column<string>(type: "char(36)", maxLength: 36, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    SellerId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     TaxId = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Name = table.Column<string>(type: "longtext", nullable: false)

@@ -27,4 +27,8 @@
     <ProjectReference Include="..\Lion.Core.Domain\Lion.Core.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Persistence\Migrations\" />
+  </ItemGroup>
+
 </Project>
