@@ -1,6 +1,7 @@
 using Lion.API;
 using Lion.Core.Application;
 using Lion.Infrastructure;
+using Lion.Infrastructure.Persistence.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,16 +16,27 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
+    app.UseMigrationsEndPoint();
+
+    // Initialize and seed database
+    using var scope = app.Services.CreateScope();
+    var initializer = scope.ServiceProvider.GetRequiredService<LionDbContextInitializer>();
+    await initializer.InitializeAsync();
+    await initializer.SeedAsync();
 }
 
-app.UseHealthChecks("/health");
+app.UseHealthChecks("/hc");
 app.UseHttpsRedirection();
+app.UseStaticFiles();
 
-app.UseSwaggerUi3(settings =>
+app.UseSwagger();
+app.UseSwaggerUI(x =>
 {
-    settings.Path = "/api";
-    settings.DocumentPath = "/api/specification.json";
+    x.SwaggerEndpoint("/swagger/v1/swagger.json", "Lion API");
+    x.RoutePrefix = "swagger";
 });
+
+app.UseRouting();
 
 app.UseAuthorization();
 

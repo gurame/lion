@@ -1,8 +1,14 @@
 version: '3.4'
 
 services:
+  
   lion.api:
     image: ${DOCKER_REGISTRY-}lionapi
     build:
       context: .
       dockerfile: src/Lion.API/Dockerfile
+    container_name: lion.api.DEV
+
+  lion.db:
+    image: mysql:latest
+    container_name: lion.db.DEV

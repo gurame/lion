@@ -1,6 +1,10 @@
 ﻿namespace Lion.Core.Domain._Common;
 public abstract class BaseAuditableEntity : BaseEntity
 {
+    public BaseAuditableEntity()
+    {
+        BaseEntityState = BaseEntityState.Active;
+    }
     public DateTime Created { get; set; }
     public string? CreatedBy { get; set; }
     public DateTime? LastModified { get; set; }

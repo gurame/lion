@@ -27,6 +27,8 @@ public static class ConfigureServices
             options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
         });
 
+        services.AddScoped<LionDbContextInitializer>();
+
         services.AddTransient<IDateTimeService, DateTimeService>();
         services.AddTransient<IIdentityService, IdentityService>();
         services.AddTransient<IUUID, UUID>();
