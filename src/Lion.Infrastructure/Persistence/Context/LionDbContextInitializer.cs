@@ -21,22 +21,9 @@ public class LionDbContextInitializer
     {
         try
         {
-            bool exception = true;
-            while (exception)
+            if (_context.Database.IsMySql())
             {
-                try
-                {
-                    if (_context.Database.IsMySql())
-                    {
-                        await _context.Database.MigrateAsync();
-                        exception = false;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    _logger.LogError(ex, "database still not ready. Waiting");
-                    Thread.Sleep(2000);
-                }
+                await _context.Database.MigrateAsync();
             }
         }
         catch (Exception ex)

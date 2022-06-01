@@ -12,9 +12,16 @@ services:
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+    depends_on:
+        lion.db:
+           condition: service_healthy
 
   lion.db:
     environment:
       - MYSQL_ROOT_PASSWORD=root
     ports:
       - "15001:3306"
+    healthcheck:
+        test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+        timeout: 10s
+        retries: 5

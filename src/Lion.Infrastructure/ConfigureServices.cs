@@ -24,7 +24,14 @@ public static class ConfigureServices
             var configuration = sp.GetService<IConfiguration>();
             options.UseLazyLoadingProxies();
             var connectionString = configuration.GetConnectionString("DefaultConnection");
-            options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+            options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString),
+                    options =>
+                    {
+                        options.EnableRetryOnFailure(
+                                maxRetryCount: 10,
+                                maxRetryDelay: TimeSpan.FromSeconds(30),
+                                errorNumbersToAdd: null);
+                    });
         });
 
         services.AddScoped<LionDbContextInitializer>();
