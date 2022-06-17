@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lion.Infrastructure", "src\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lion.API", "src\Lion.API\Lion.API.csproj", "{29E25D78-44AA-4731-A8E9-3E68F48045B1}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{996AEC42-072A-47DB-9161-6702FCA0499B}"
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "src\Lion.DockerCompose\docker-compose.dcproj", "{996AEC42-072A-47DB-9161-6702FCA0499B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "items", "items", "{C7F383EF-67E5-44E3-9F74-C1D9609EE4DC}"
 EndProject
