@@ -22,7 +22,7 @@ jobs:
     - name: Sonarqube Begin
       run: | 
         dotnet tool install --global dotnet-sonarscanner
-        dotnet sonarscanner begin /o:gurame /k:lion /d:sonar.login=${{ secrets.X_SONAR_TOKEN }} /s:$GITHUB_WORKSPACE/.sonar/SonarQube.Analysis.xml
+        dotnet sonarscanner begin /o:gurame /k:gurame_lion /d:sonar.login=${{ secrets.X_SONAR_TOKEN }} /s:$GITHUB_WORKSPACE/.sonar/SonarQube.Analysis.xml
     - name: Build
       run: dotnet build --no-restore
     - name: Unit Test
