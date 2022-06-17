@@ -22,11 +22,11 @@ jobs:
     - name: Sonarqube Begin
       run: | 
         dotnet tool install --global dotnet-sonarscanner
-        dotnet sonarscanner begin /o:gurame /k:lion /d:sonar.login=${{ secrets.X_SONAR_TOKEN }} /s:.sonar/SonarQube.Analysis.xml
+        dotnet sonarscanner begin /o:gurame /k:lion /d:sonar.login=${{ secrets.X_SONAR_TOKEN }} /s:".sonar/SonarQube.Analysis.xml"
     - name: Build
       run: dotnet build --no-restore
     - name: Unit Test
-      run: dotnet test tests/Lion.UnitTests --no-build --verbosity normal --settings .sonar/coverlet.runsettings --logger:trx
+      run: dotnet test tests/Lion.UnitTests --no-build --verbosity normal --settings ".sonar/coverlet.runsettings" --logger:trx
     - name: Sonarqube end
       run: dotnet sonarscanner end /d:sonar.login="${{ secrets.X_SONAR_TOKEN }}"
       env:
